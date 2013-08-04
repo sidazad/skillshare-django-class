@@ -1,0 +1,32 @@
+
+
+<a href="/notes/logout/">Log Out</a>
+<h2>Dashboard {{ user }}</h2>
+
+<table>
+	<tr>
+		<td>
+			<form name="noteForm" action="/notes/dashboard/" method="post"> {% csrf_token %}
+				{{form.as_p}}
+				<input type="submit" value="New Note"/>
+			</form>	
+		</td>
+		<td>&nbsp;&nbsp;&nbsp;</td>
+		<td>
+			{% if not notes %}
+			    You have no notes
+			{% else %}
+			    <table border="1">	
+			    {% for note in notes %}
+				<tr>
+			    <td><input type="text" value="{{  note.title }}"</input></td>
+			    <td>{{  note.text }}</td>
+				<td><a href="/notes/editnote/?id={{ note.id }}">Edit</a>
+				<td><a href="/notes/delnote/?id={{ note.id }}">Delete</a>
+			    {% endfor %}
+			    </tr>
+			    </table>
+			{% endif %}
+		</td>
+	</tr>
+</table>

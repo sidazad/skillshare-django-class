@@ -1,0 +1,16 @@
+<h3>Hello, {{ username | lower }}</h3>
+
+
+{% if temp < 80 %}
+It's a nice day
+{% else %}
+It's too hot
+{% endif %}
+
+<ul>
+{% for fruit in fruits %}
+<li>
+	{{ fruit }}
+</li>
+{% endfor %}
+</ul>

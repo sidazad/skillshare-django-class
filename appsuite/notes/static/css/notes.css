@@ -1,0 +1,15 @@
+input[type="text"]
+{
+width:200px;
+display:block;
+margin-bottom:10px;
+margin-left:30px;
+border-color:black;
+}
+input[type="submit"]
+{
+width:120px;
+margin-left:35px;
+display:block;
+color:blue;
+}
