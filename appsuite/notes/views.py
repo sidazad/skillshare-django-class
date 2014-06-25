@@ -14,7 +14,6 @@ from django.contrib.auth.decorators import login_required
 
 from notes_forms import LoginForm
 from models import Note,NoteForm
-from django.forms.models import modelformset_factory
 
 
 
@@ -30,7 +29,8 @@ def dashboard(request):
             formset.save()
         return redirect("dashboard")
     else:
-        formset=NoteFormSet(instance=request.user)
+        qs = Note.objects.order_by('-createTime')
+        formset=NoteFormSet(instance=request.user, queryset=qs)
         return render_to_response("dashboard.html",
         {'form':NoteForm(),'formset':formset},RequestContext(request))
 

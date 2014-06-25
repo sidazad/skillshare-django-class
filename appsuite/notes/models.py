@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 
 from django.contrib.auth.models import User
@@ -20,7 +19,7 @@ class NoteForm(ModelForm):
         widgets = {
             'text': Textarea(attrs={'cols': 60, 'rows': 10}),
         }
-        
+
         
         
 from tastypie.authorization import Authorization
